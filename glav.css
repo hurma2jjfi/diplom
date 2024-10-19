@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Oswald", sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 150px;
+    background-color: #101010;
+    color: #fff;
+}
+
+.li__item {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.ul__wrapper {
+    display: flex; /* Делаем список флекс-контейнером */
+    justify-content: center; /* Горизонтальное центрирование */
+    align-items: center; /* Вертикальное центрирование */
+    height: 100%; /* Заполняем всю высоту header */
+    list-style-type: none; /* Убираем стандартные маркеры списка */
+    padding: 0; /* Убираем отступы */
+    margin: 0; /* Убираем внешние отступы */
+}
+
+.li__item {
+    display: flex;
+    gap: 50px; 
+    margin-top: 50px;
+}
+
+.li__item a {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+#btn {
+    width: 243px;
+    height: 59px;
+    margin-left: 84px;
+    margin-top: -10px;
+    background: linear-gradient(#FF0B8F, #F46767); /* Замените цвета на желаемые */
+    color: white; /* Цвет текста (по желанию) */
+    border: none; /* Убираем рамку (если нужно) */
+    border-radius: 45px; /* Закругление углов (по желанию) */
+    display: flex; /* Для центрирования текста */
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    text-decoration: none; /* Убираем подчеркивание для ссылки */
+    font-size: 16px; /* Размер шрифта (по желанию) */
+    
+}
+
+#btn:hover {
+transition: 1.1s;
+
+}
+.logo__item {
+    margin-top: 40px;
+    margin-right: 180px;
+}
