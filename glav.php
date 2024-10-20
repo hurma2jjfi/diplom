@@ -55,7 +55,7 @@ try {
                 <li><a href="#">Условия</a></li>
                 <li><a href="#">Юридическим лицам</a></li>
                 <li><a href="#">Контакты</a></li>
-                <div id="btn"><a href="#">Регистрация</a></div>
+                <div id="btn"><a href="logout.php">Выйти</a></div>
               </div>
             </ul>
             

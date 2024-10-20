@@ -133,3 +133,6 @@ const customSelect = document.getElementById('customSelect');
         yoyo: true, // Возврат к исходной позиции
         stagger: 0.1 // Задержка между повторами
     });
+
+    
+      

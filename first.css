@@ -173,7 +173,7 @@ option {
 }
 
 #inner {
-    margin-left: 55px;
+    margin-left: 25px;
   
 }
 
@@ -461,4 +461,100 @@ option {
 /* Чтобы полоска не появилась при наведении на ссылку #r */
 #r:hover::after {
     transform: translateX(-50%) scaleX(0); /* Скрываем полоску */
+}
+
+footer {
+    height: 50%;
+    width: 100%;
+    background-color: #101010;
+    margin-top: 390px;
+}
+
+.logo__flex__foot {
+    display: flex;
+    justify-content: center;
+    margin-right: 1180px;
+}
+
+.logo__foot {
+margin-top: 100px;
+}
+
+.footer-nav ul {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0; /* Убираем отступы */
+}
+
+.footer-nav li {
+    display: inline; /* Располагаем элементы в ряд */
+    margin: 0 15px; /* Отступы между элементами */
+}
+
+.footer-nav a {
+    color: white; /* Цвет текста ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: color 0.3s; /* Анимация при наведении */
+}
+
+.footer-nav a:hover {
+    color: #ff6347; 
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: -50px;
+    margin-left: -200px;
+}
+
+.links__social .social__inner {
+    display: inline;
+    margin: 0 10px; 
+}
+
+.links__social {
+    display: flex;
+    justify-content: center;
+    margin-top: -30px;
+    margin-left: 500px;
+}
+
+#btn__check {
+    width: 243px;
+    height: 59px;
+    background: linear-gradient(90deg, #F46767, #FF0B8F);
+    color: #FFF;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    border-radius: 45px;
+    cursor: pointer;
+}
+
+#btn__check:hover {
+    transition: 1.1s;
+    transform: scale(1.1);
+}
+
+.btn__foot__fl {
+    display: flex;
+    justify-content: center;
+    margin-left: 1050px;
+    margin-top: -60px;
+}
+
+.soc:hover {
+    transition: 0.5s;
+    opacity: 70%;
+}
+
+.cent {
+    display: flex;
+    justify-content: center;
+    margin-left: -190px;
+}
+
+.btn__register a {
+    text-decoration: none;
+    color: #FFF;
 }

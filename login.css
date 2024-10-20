@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Muli:400,700&display=swap');
-
 html,body, *{
   margin: 0px;
   padding: 0px;
@@ -46,7 +45,7 @@ html,body{
    width: 100%;
   height: auto;
   padding: 8px;
-  background-image: url(./image/Без\ имени-1.png);
+  background-image: url(./image/image\ 85\ 5.png),linear-gradient(#eb01a5, #d13531);
   background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -131,7 +130,7 @@ margin-right: 20px;}
 /* Formss*/
 
 .form-lol {
-    margin-top: 50px;
+    margin-top: 150px;
   position:relative
 }
 
@@ -298,5 +297,13 @@ footer a, footer a:visited{
 
 .full-input input.error {
   border: 1px solid red;
+}
+
+
+.error-message {
+  color: #ff0019;
+  border-color: #f5c6cb;
+  margin-top: 20px;
+
 }
 

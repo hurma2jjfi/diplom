@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Сен 22 2024 г., 18:18
+-- Время создания: Окт 20 2024 г., 22:06
 -- Версия сервера: 8.0.30
 -- Версия PHP: 8.1.9
 
@@ -50,6 +50,28 @@ INSERT INTO `cars` (`id_car`, `image`, `name`, `year`, `type`, `price`) VALUES
 (7, './image/image (6).png', 'KIA RIOX', 2022, 'АКПП', 3500),
 (8, './image/image (7).png', 'MERCEDEC BENZ GLA', 2020, 'АКПП', 5000);
 
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `users`
+--
+
+CREATE TABLE `users` (
+  `id` int NOT NULL,
+  `fullname` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `fullname`, `email`, `phone`, `password`) VALUES
+(1, 'выфвывыфвыф', 'utipov36@gmail.com', '89054804059', '$2y$10$Yp.ELIrIVDgaYP6OrtritePIbyIbuX.mgN6499L8URUJuG98qa35W'),
+(11, 'dsdsadsa', 'masha123@mail.ru', '89054804059', '$2y$10$I0UEeeVkIxN874XMhhwou.87Mo1CDpBZ1bhwU9KSooNNN5UhLOvAC');
+
 --
 -- Индексы сохранённых таблиц
 --
@@ -61,6 +83,13 @@ ALTER TABLE `cars`
   ADD PRIMARY KEY (`id_car`);
 
 --
+-- Индексы таблицы `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
@@ -69,6 +98,12 @@ ALTER TABLE `cars`
 --
 ALTER TABLE `cars`
   MODIFY `id_car` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT для таблицы `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
