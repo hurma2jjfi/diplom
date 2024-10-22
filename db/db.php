@@ -12,9 +12,7 @@ try {
     // Установка режима ошибок
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-   
 } catch (PDOException $e) {
-    // Обработка ошибки подключения
-    
+    die("Ошибка подключения: " . $e->getMessage());
 }
 ?>

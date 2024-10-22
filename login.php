@@ -102,6 +102,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </div>
 </section>
 
+
+
+
 <script>
 $(document).ready(function() {
     $('#loginForm').on('submit', function(e) {
@@ -131,6 +134,10 @@ $(document).ready(function() {
         });
     });
 });
+
+
+
+
 </script>
 </body>
 </html>

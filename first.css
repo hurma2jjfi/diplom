@@ -177,6 +177,10 @@ option {
   
 }
 
+#r {
+    font-weight: bold;
+}
+
 .center__cont {
     display: flex;
     justify-content: center;

@@ -45,7 +45,7 @@ html,body{
    width: 100%;
   height: auto;
   padding: 8px;
-  background-image: url(./image/image\ 85\ 5.png),linear-gradient(#eb01a5, #d13531);
+  background-image: url(./image/image\ 85\ 5.png);
   background-size:cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -6,6 +6,9 @@ try {
 } catch (PDOException $e) {
     echo "Ошибка при выполнении запроса: " . $e->getMessage();
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +17,8 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <link rel="stylesheet" href="glav.css">
     <title>Главная</title>
     <style>
@@ -55,7 +60,7 @@ try {
                 <li><a href="#">Условия</a></li>
                 <li><a href="#">Юридическим лицам</a></li>
                 <li><a href="#">Контакты</a></li>
-                <div id="btn"><a href="logout.php">Выйти</a></div>
+                <div id="btn"><a id="r" href="logout.php">Выйти</a></div>
               </div>
             </ul>
             
@@ -63,37 +68,79 @@ try {
     </header>
 
     <div id="car__present">
-        <h1>АВТОПРОКАТ PINKCAR — АРЕНДА <br> АВТОМОБИЛЕЙ №1 В РОССИИ</h1>
-        <p>Арендуй машину от эконом до бизнес класса по всей России<br> за 15 мин с доставкой в любую точку города</p>
-        <label for="">Выбрать автомобиль</label>
-        <input type="text">
-        <label for="">Дата начала аренды</label>
-        <input type="date">
-        <label for="">Телефон</label>
-        <input type="text">
-        <div id="btn__nal"><a href="#">ПРОВЕРИТЬ НАЛИЧИЕ АВТОМОБИЛЯ</a></div>
-    </div>
+      <div class="background__image">
+        <div class="section__form">
+        <div class="flex__title">
+        <div class="title__txt">
+        <h1 class="tx"><span>АВТОПРОКАТ PINKCAR — </span> АРЕНДА <br> АВТОМОБИЛЕЙ №1 В РОССИИ</h1></div></div>
+        <div class="flex__p">
+        <div class="title__p">
+        <p>Арендуй машину от эконом до бизнес класса по всей России<br> за 15 мин с доставкой в любую точку города</p></div></div>
+        <div class="label__wrap">
+        <div class="label__txt">
+        <label for="">Выбрать автомобиль</label></div></div>
+        <div class="sel__wrap">
+        <div class="sel__input">
+        <select id="select__auto">
+    <option value="toyota">Toyota Camry</option>
+    <option value="bmw">BMW 5 Series</option>
+    <option value="audi">Audi A6</option>
+    <option value="mercedes">Mercedes E-Class</option>
+    <option value="honda">Honda Accord</option>
+    <option value="ford">Ford Focus</option>
+    <option value="nissan">Nissan Altima</option>
+    <option value="kia">Kia Optima</option>
+</select></div></div>
+<div class="date__wrap">
+<div class="date__start">
+        <label for="">Дата начала аренды</label></div></div>
+        <div class="field__wrapp">
+        <div class="field__inp">
+        <input id="date__field" type="date"></div></div>
+        <div id="field__phone__flex">
+        <div id="field__phone">
+        <label for="">Телефон</label></div></div>
+        <div class="flex__set__wrapp">
+        <div class="flex__set">
+          <div class="country"><div class="countr"><img src="./image/Group 224.png"></div></div>
+        <input id="phone__fieldset" type="text" placeholder="+7 (999)-999-99-99"></div></div>
+        <div class="firds__wrap">
+        <div class="btn__firds">
+        <div id="btn__nal"><a class="checkout" href="#">ПРОВЕРИТЬ НАЛИЧИЕ АВТОМОБИЛЯ</a></div></div></div><div class="line"><div class="line__f"><svg width="70" height="50" viewBox="0 0 113 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect y="30.5963" width="6" height="74" rx="3" transform="rotate(-50 0 30.5963)" fill="white"/>
+<rect y="4.59625" width="6" height="74" rx="3" transform="rotate(-50 0 4.59625)" fill="white"/>
+<rect width="6" height="74" rx="3" transform="matrix(-0.642788 -0.766044 -0.766044 0.642788 112.544 30.5963)" fill="white"/>
+<rect width="6" height="74" rx="3" transform="matrix(-0.642788 -0.766044 -0.766044 0.642788 112.544 4.59625)" fill="white"/>
+</svg></div></div>
+    </div></div>
+</div>
+
 
     <!-- Фильтр по цене -->
     <div class="filter">
+      <div id="cont__filt__flex">
+      <div id="cont__filter">
         <label for="minPriceRange">Минимальная цена:</label>
         <input type="range" id="minPriceRange" min="2300" max="5000" value="2300" step="100">
-        <span><input type="number" id="minPrice" value="2300" min="2300" max="5000"></span>
+        <span><input type="number" id="minPrice" value="2300" min="2300" max="5000"></span><br>
         <label for="maxPriceRange">Максимальная цена:</label>
         <input type="range" id="maxPriceRange" min="2300" max="5000" value="5000" step="100">
-        <span><input type="number" id="maxPrice" value="5000" min="2300" max="5000"></span>
+        <span><input type="number" id="maxPrice" value="5000" min="2300" max="5000"></span></div></div>
     </div>
 
     <!-- Фильтр по ID и сортировке -->
     <div class="filter">
-        <label for="carSort">Сортировка:</label>
+      <div class="sort__wrap">
+      <div class="sort__fir">
+      <div class="custom-select">
+        <label for="carSort">Сортировка:</label><br>
         <select id="carSort">
-            <option value="asc-def">Порядок: по умолчанию</option>
+            <option value="asc-def">По умолчанию</option>
             <option value="asc-price">Цена: по возрастанию</option>
             <option value="desc-price">Цена: по убыванию</option>
             <option value="new-first">Порядок: сперва новые</option>
             <option value="old-first">Порядок: сперва старые</option>
-        </select>
+        </select><span class="arrow"></span></div></div></div>
     </div>
 
     <div id="car_list">
@@ -101,20 +148,18 @@ try {
     <table>
         <tbody id="carTableBody">
             <?php
-            // Вывод данных из таблицы
+            $stmt = $pdo->query("SELECT * FROM cars");
+            
             if ($stmt) {
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    // Проверяем наличие id_car и обрабатываем возможные значения
                     $carId = isset($row['id_car']) ? htmlspecialchars($row['id_car']) : 'N/A';
-                    
                     echo "<tr data-id='" . $carId . "' data-price='" . htmlspecialchars($row['price']) . "' data-year='" . htmlspecialchars($row['year']) . "'>";
-                    echo "<td><img src='" . htmlspecialchars($row['image']) . "' alt='" . htmlspecialchars($row['name']) . "' style='width:100px;height:auto;'></td>";
+                    echo "<td><img src='" . htmlspecialchars($row['image']) . "' alt='" . htmlspecialchars($row['name']) . "' style='width: 374px;px;height:auto;'></td>";
                     echo "<td>" . htmlspecialchars($row['name']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['year']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['type']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['price']) . " руб.</td>";
-                    // Добавление кнопки "Подробнее"
-                    echo "<td><button onclick=\"location.href='car_details.php?id=" . $carId . "'\">Подробнее</button></td>";
+                    echo "<td><button onclick=\"location.href='car_details.php?id={$carId}'\">Подробнее</button><td/>";
                     echo "</tr>";
                 }
             } else {
@@ -275,6 +320,6 @@ p {
 
 
 <script src="glav.js" defer></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/gsap.min.js"></script>
 </body>
 </html>

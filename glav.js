@@ -114,3 +114,18 @@ $(function() {
   });
 
 
+  $(document).ready(function(){
+    $('#phone__fieldset').mask('+7 (999) 999-99-99');
+});
+
+gsap.to(".line", { 
+    duration: 2, 
+    opacity: 1, 
+    y: 30, 
+    scale: 1.1, // Увеличиваем размер на 10%
+    ease: "power3.out",
+    repeat: -1, // Бесконечное повторение
+    yoyo: true, // Возврат к исходной позиции
+
+});
+
