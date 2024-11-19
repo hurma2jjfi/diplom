@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="checkboxes">
                     <label class="lol-check" for="stayin">
                         Согласие на обработку персональных данных
-                        <input type="checkbox" id="stayin" name="stayin" required>
+                        <input type="checkbox" id="stayin" name="stayin">
                         <span class="checkmark"></span>
                     </label>
                 </div>

@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
+
 @font-face {
     font-family: 'Tkachenko';
     src: url('./font/ofont.ru_Tkachenko\ Sketch\ 4F.ttf') format('truetype');
-  }                                                                                
+  }  
+
 
   @font-face {
     font-family: 'DrukWideCyr'; /* Укажите имя шрифта */
@@ -12,7 +14,6 @@
     font-style: normal; /* Укажите стиль шрифта */
 }
 
-
 * {
     margin: 0;
     padding: 0;
@@ -20,11 +21,14 @@
 
 body,  html {
     height: 100%;
+    background-color: #101010;
+    color: #fff;
+    
 }
 
 body {
     font-family: "Oswald", sans-serif;
-    overflow-x: hidden;
+    
 }
 
 header {
@@ -64,14 +68,14 @@ header {
 }
 
 #btn {
-    width: 150px;
-    height: 45px;
+    width: 243px;
+    height: 59px;
     margin-left: 84px;
     margin-top: -10px;
     background: linear-gradient(#FF0B8F, #F46767); /* Замените цвета на желаемые */
     color: white; /* Цвет текста (по желанию) */
     border: none; /* Убираем рамку (если нужно) */
-    border-radius: 4px; /* Закругление углов (по желанию) */
+    border-radius: 45px; /* Закругление углов (по желанию) */
     display: flex; /* Для центрирования текста */
     justify-content: center; /* Центрирование по горизонтали */
     align-items: center; /* Центрирование по вертикали */
@@ -124,8 +128,7 @@ transition: 1.1s;
 
 
 .ul__wrapper a:hover::after {
-    transform: translateX(-50%) scaleX(1); 
-   
+    transform: translateX(-50%) scaleX(1);
 }
 
 
@@ -164,465 +167,197 @@ transition: 1.1s;
     transform: scale(1.1);
 }
 
-.background__image {
-    
-    background-image: url(./image/image\ 38.png);
-    background-repeat: no-repeat;
-    background-size: cover; /* Заполняет весь элемент, сохраняя пропорции */
-    height: 1082px; 
-    width: 100%; 
-
+#back__btn {
+     width: 243px;
+    height: 59px;
+    background: linear-gradient(#FF0B8F, #F46767); 
+    color: white; 
+    border: none; 
+    border-radius: 15px; 
+    text-decoration: none; 
+    font-size: 16px; 
+    font-family: "Oswald", sans-serif;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-.flex__title {
+#back__btn:hover {
+    transition: 1.1s;
+    transform: scale(1.1);
+}
+
+.card {
     display: flex;
     justify-content: center;
-    position: relative;
-    top: 200px;
-    left: 55px;
-}
-
-.flex__p {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: 210px;
-    left: -48px;
-}
-
-.label__wrap {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: 235px;
-    left: -168px;
-}
-
-#select__auto {
-    width: 374px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: #FFFFFF;
-    color: #000;
-    border: 2px solid #FF0B8F;
     
 }
 
-#select__auto {
-    outline: none;
-}
-
-
-.sel__wrap {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: 245px;
-    left: -48px;
-
-}
-
-.date__wrap {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: 255px;
-    left: -168px;
-}
-
-#date__field {
-    width: 374px;
+#bronirov {
+    width: 145px;
     height: 50px;
-    border-radius: 10px;
-    background-color: #FFFFFF;
-    border: 2px solid #FF0B8F;
+    background: linear-gradient(#FF0B8F, #F46767); 
+    color: white; 
+    border: none; 
+    border-radius: 6px; 
+    text-decoration: none; 
+    font-size: 16px; 
+    font-family: "Oswald", sans-serif;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-#date__field:focus {
-    outline: none;
+#bronirov:hover{
+    transition: 1.1s;
+    transform: scale(1.1);
 }
 
 
-.field__wrapp {
+.popup {
+    display: none; /* Скрыт по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white; /* Белый фон */
+    z-index: 1000; /* Поверх других элементов */
+    justify-content: center; /* Центрирование по вертикали */
+    align-items: center; /* Центрирование по горизонтали */
+    opacity: 0; /* Начальная прозрачность */
+    transition: opacity 0.5s ease, display 0s linear 0.5s; /* Плавный переход */
+    
+}
+
+.popup.active {
+    display: flex; /* Показываем блок как flex контейнер */
+    opacity: 1; /* Полная непрозрачность */
+    transition: opacity 0.5s ease; /* Плавный переход для появления */
+}
+
+.popup__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.perosonal__data {
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+#car__image{
     display: flex;
-    justify-content: center;
-    position: relative;
-    top: 265px;
-    left: -48px;
+    justify-content: start;
+    margin-left: 332px;
+    margin-top: -150px;
+    z-index: 1;
 }
 
-#field__phone__flex {
+.background__blur {
+    width: 341px;
+    height: 198px;
+    background: linear-gradient(90deg, #F46767, #FF0B8F); /* Удален пробел */
+    filter: blur(82px); /* Возможно, вы имели в виду 12px вместо 122 */
+    border-radius: 300px;
+    transform: translateX(-300px); /* Начальное смещение слева */
     display: flex;
-    justify-content: center;
+    justify-content: start;
+    margin-left: 480px;
+    margin-top: 200px;
+    position: absolute;
+}
+
+#back {
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: lighter;
+}
+
+.back__kit {
+    display: flex;
+    justify-content: start;
+    margin-left: 322px;
+}
+
+.link__descrip {
+    display: flex;
+    justify-content: start;
+    margin-left: 342px;
+    position: absolute;
+    margin-top: -18px;
+}
+
+.background__centr {
+    margin-left: 1099px;
     position: relative;
     top: 275px;
-    left: -208px;
 }
 
-#phone__fieldset {
-    width: 374px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: #FFFFFF;
-    border: 2px solid #FF0B8F;
-}
-
-#phone__fieldset:focus {
-    outline: none;
-}
-
-.flex__set__wrapp {
+.flex__roditel {
     display: flex;
-    justify-content: center;
-    position: relative;
-    top: 285px;
-    left: -48px;
-}
-
-.country {
+    justify-content: end;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 1400px;
     position: absolute;
-    top: 17px;
-    margin-left: 10px;
+    
 }
 
-
-
-#phone__fieldset {
-    text-indent: 40px; /* Смещение текста и курсора вправо */
-
-
+.fl {
+    position: relative;
+    top: 275px;
 }
 
-#date__field {
-    text-indent: 20px; 
+.flex__btn__bron {
+    display: flex;
+    justify-content: start;
+    margin-left: 1100px;
+    margin-top: -100px;
 }
 
-#select__auto {
-    text-indent: 35px; 
+.center {
+    margin-top: -100px;
 }
 
-#phone__fieldset::placeholder {
-    color: #888; /* Цвет плейсхолдера */
-    opacity: 1; /* Обеспечим полную непрозрачность, если нужно */
-    /* Дополнительные стили для плейсхолдера, если нужно */
+#back {
+    text-decoration: underline;
 }
 
-#btn__nal {
-    width: 374px;
-    height: 50px;
-    background: linear-gradient(240deg, #F46767, #FF0B8F);
-    border-radius: 10px;
+#back:hover {
+    scale: 1.1;
+    transition: 1.1s;
+}
+
+.back__kit {
+    cursor: pointer;
+}
+
+.section__cntr {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 500px;
+    margin-left: -140px;
+    margin-top: 50px;
 }
 
-
-.firds__wrap {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: 335px;
-    left: -48px;
-   
-}
-
-.checkout {
-    text-decoration: none;
-    font-weight: lighter;
-    color: #fff;
-}
-
-.tx {
-    font-size: 40px;
-    color: #fff;
-}
-
-.tx span {
-    color: #FF0B8F;
-}
-
-.label__txt, .title__p, .date__start, #field__phone {
-    color: #fff;
-}
-
-.line {
-    display: flex;
-    justify-content: center;
-    margin-top: 470px;
-    margin-left: -100px;
-    cursor: pointer;
-}
-
-/* .section__form {
-    margin-left: -500px;
-} */
-
-#btn__nal:hover {
-    transition: 1.1s;
-    transform: scale(1.1);
-}
-
-#cont__filt__flex {
-    display: flex;
-    justify-content: center;
-    margin-left: -1000px;
-    margin-top: 86px;
-}
-
-/* #minPrice {
-    margin-left: 5px;
-} */
-
-input[type=range] {
-    -webkit-appearance: none; /* Убираем стандартный стиль в Chrome */
-    appearance: none; /* Убираем стандартный стиль в других браузерах */
-    width: 100%; /* Полная ширина */
-    height: 1px; /* Высота трека */
-    background: #ddd; /* Цвет трека по умолчанию */
-    border-radius: 5px; /* Закругленные углы */
-    outline: none; /* Убираем выделение */
-}
-
-
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Убираем стандартный стиль для ползунка */
-    appearance: none; /* Убираем стандартный стиль для ползунка */
-    width: 15px; /* Ширина ползунка */
-    height: 15px; /* Высота ползунка */
-    border-radius: 50%; /* Круглая форма */
-    background: #F46767; /* Новый цвет ползунка (зеленый) */
-    cursor: pointer; /* Курсор указателя */
-}
-
-#minPrice, #maxPrice {
-    border: 1px solid #ddd;
-}
-
-#minPrice, #maxPrice:focus {
-    outline: none;
-}
-
-
-
-.sort__wrap {
-    display: flex;
-    justify-content: center;
-    margin-left: -1160px;
-    margin-top: 10px;
-    
-}
-
-#carSort {
-    border: 1px solid #ddd; /* Граница селекта */
-    padding: 10px; /* Отступы внутри селекта */
-    appearance: none; /* Убираем стандартный стиль */
-    -moz-appearance: none; /* Для Firefox */
-    -webkit-appearance: none; /* Для Safari */
-    background: transparent; /* Прозрачный фон */
-    position: relative; /* Позиционирование для псевдоэлементов */
-}
-
-#carSort::after {
-    content: '▼'; /* Стрелка вниз */
-    position: absolute;
-    right: 10px; /* Отступ от правого края */
-    top: 50%; /* Центрирование по вертикали */
-    transform: translateY(-50%); /* Выравнивание по центру */
-    pointer-events: none; /* Игнорируем клики на стрелке */
-}
-
-/* Очищаем фон и границу при фокусировке */
-#carSort:focus {
-    outline: none;
-}
-
-#carSort:focus {
-outline: none;
-}
-
-.custom-select {
-    position: relative; /* Позиционирование для стрелки */
-    display: inline-block; /* Позволяет использовать ширину содержимого */
-}
-
-#carSort {
-    border: 1px solid #ddd; /* Граница селекта */
-    padding: 10px; /* Отступы внутри селекта */
-    appearance: none; /* Убираем стандартный стиль */
-    -moz-appearance: none; /* Для Firefox */
-    -webkit-appearance: none; /* Для Safari */
-    background: transparent; /* Прозрачный фон */
-    width: 100%; /* Занимаем всю ширину родителя */
-}
-
-.arrow {
-    position: absolute;
-    right: 5px; 
-    margin-top: 10px;
-    top: 50%; 
-    transform: translateY(-50%); 
-  
- 
-}
-
-.car-grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap; 
-    gap: 10px; 
-}
-
-.car-item { 
-    flex: 0 0 23%; 
-    box-sizing: border-box;
-   
-}
-
-.center__cart {
-    display: flex;
-    justify-content: center;
-    margin-left: 240px;
-}
-
-.btn__details {
-    width: 150.05px;
-    height: 45px;
-    background: linear-gradient(240deg, #F46767, #FF0B8F);
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    font-weight: bolder;
-    font-size: 14px;
-    font-family: "Oswald", sans-serif;
-    cursor: pointer;
-}
-
-.filt {
-    margin-left: 78px;
-}
-
-.car-year, .car-type, .car-year {
-    margin-top: 7.64px;
-    font-weight: lighter;
-}
-
-.car-price {
-    margin-top: 7.64px;
-    font-weight: 400;
-}
-
-.btn__details {
-    margin-top: 40px;
-}
- 
-.btn__details:hover {
-    transition: 1.1s;
-    transform: scale(1.1);
-}
-
-h2 {
-    color: #282F35;
-    font-size: 20px;
-    letter-spacing: 1px;
+.child {
+    white-space: nowrap;
     margin: 0;
-    font-family: 'Oswald', sans-serif;
-  }
-
-#lt {
-    font-family: 'Oswald', sans-serif;
 }
-  .list-text p {
-    color: #666666;
-    font-size: 18px;
-    line-height: 1.5;
-    margin: 20px;
-    font-family: 'Oswald", sans-serif';
-  }
 
-
-  .main {
-    max-width: 640px;
-    margin: 0 auto;
-  }
-  .list {
-    margin: 90px 0;
-    overflow: hidden;
-    padding: 0;
-  }
-  .list li {
-    list-style-type: none;
-    padding: 0;
-  }
-  .list-heading {
-    background: #FFFFFF;
-    border: none;
-    border-bottom: solid 1px #F2F2F2;
-    cursor: pointer;
-    display: block;
-    outline: none;
-    padding: 2em;
-    position: relative;
-    text-align: center;
-    width: 100%;
-  }
-  .list-heading:before {
-    background: #ff4d4d;
-    content: '';
-    height: 2px;
-    margin-right: 37px;
+.child-text {
+    display: inline-block;
     position: absolute;
-    right: 0;
-    top: 50%;
-    transform: rotate(-90deg);
-    transition: all 0.2s ease-in-out;
-    width: 14px;
-  }
-  .list-heading:after {
-    background: #ff4d4d;
-    content: '';
-    height: 2px;
-    margin-right: 37px;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    width: 14px;
-  }
-  .list-heading.active:before {
-    transform: rotate(0deg);
-  }
-  .list-heading.active h2, .list-heading:focus h2 {
-    position: relative;
-    color: #ff8383;
-  }
-  .list-text {
-    background: #fff;
-    display: none;
-    overflow: hidden;
-  }
-  
-  .backgr_zag{
-      display: flex;
-      justify-content: center;
-      position: relative;
-      top: 60px;
-  }
-  
-  .list-heading:hover {
-      transition: 1.3s ease-in-out;
-      background: #000;
+    margin-left: 5px;
     
-  }
+}
 
-  #quest__container {
-    margin-top: 200px;
-    margin-left: -100px;
-  }
-
-#que {
-    font-size: 40px;
-    text-transform: uppercase;
-    font-style: italic;
+.child__flex {
+    margin-top: -10px;
 }
 
 footer {
@@ -630,7 +365,7 @@ footer {
     height: 50%;
     width: 100%;
     background-color: #101010;
-    margin-top: 390px;
+ 
 }
 
 .logo__flex__foot {
@@ -683,16 +418,15 @@ margin-top: 100px;
 }
 
 #btn__check {
-    width: 150px;
-    height: 45px;
+    width: 243px;
+    height: 59px;
     background: linear-gradient(90deg, #F46767, #FF0B8F);
     color: #FFF;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
     border: none;
-    border-radius: 4px;
+    border-radius: 45px;
     cursor: pointer;
-    
 }
 
 #btn__check:hover {
@@ -703,13 +437,26 @@ margin-top: 100px;
 .btn__foot__fl {
     display: flex;
     justify-content: center;
-    margin-left: 1050px;
+    margin-left: 150px;
     margin-top: -60px;
 }
 
 .soc:hover {
     transition: 0.5s;
     opacity: 70%;
+}
+
+.social__inner {
+    z-index: 1;
+}
+
+.svg__logo {
+    position: absolute;
+    margin-top: 270px;
+}
+
+.BsoP_M2SZZTQk0HIeOwh  {
+z-index: -1;
 }
 
 .cent {
@@ -724,8 +471,7 @@ margin-top: 100px;
 }
 
 #btn__check {
-    font-family: "Tkachenko", sans-serif;
-    font-size: 16px;
+    font-family: "Oswald", sans-serif;
 }
 
 .sort__wrap {
@@ -1156,190 +902,166 @@ justify-content: right;
     overflow: hidden;
 }
 
- 
-        .reviews {
-            text-transform: uppercase;
-            font-style: italic;
-        }
+#color {
+    color: #ffffff;
+}
 
-        #rev {
-            font-size: 40px;
-            
-        }
+#closeBtn {
+    color: #000;
+}
 
-        .reviews {
-            display: flex;
-            justify-content: center;
-            padding-top: 300px;
-        }
-
-        .reviews__ostav {
-            width: 150px;
-            height: 45px;
-            background: #000;
-            color: #fff;
-            cursor: pointer;
-            font-size: 14px;
-            font-family: "Oswald", sans-serif;
-            border: none;
-            font-weight: bolder;
-            align-items: center;
-            border-radius: 4px;
-        }
-
-        .reviews__ostav:hover {
-            transition: 1.1s;
-            transform: scale(1.1);
-        }
-
-        .btn__review {
-            display: flex;
-            justify-content: center;
-            padding-top: 30px;
-        }
-
-        .modal-content-two {
-            background-color: #000;
-    margin: 10% auto;
-    padding: 70px;
-    border: 1px solid #888;
-    color: #fff;
+.popup__vlozhenniy {
+    margin-top: 150px;
     width: 560px;
-    height: 498px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    height: 1065px;
+    border-radius: 16px;
+    background: #F46767;
+}
 
-        }
-        
-        #slct__rev {
-            font-family: 'DrukWideCyr', sans-serif;
-            color: #fff;
-            font-style: italic;
-            padding-top: 30px;
-            text-transform: uppercase;
-            font-size: 27px;
-        }
+.data__bron {
+    font-family: 'DrukWideCyr', sans-serif;
+    font-size: 32px;
+    margin-top: 47px;
+    margin-left: 130px;
+}
 
-        #flex__slct {
-            display: flex;
-            justify-content: center;
-        }
-        #reviewForm {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem; 
-            width: 100%; 
-            max-width: 400px; 
-            margin: 0 auto; 
-            padding: 1rem;
-            border-radius: 5px; /
-          }
-          
-          #reviewForm label {
-            font-weight: bold;
-          }
-          
-          #reviewForm select,
-          #reviewForm textarea
-           {
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box; 
-          }
-          
-          
-          
-          #send {
-            font-size: 14px;
-            font-weight: bolder;
-          }
+.data__input {
+    font-family: 'Oswald', sans-serif;
+    font-weight: lighter;
+    margin-left: 235px;
+}
 
-          #reviewForm button:hover {
-            transition: 1.1s;
-           transform: scale(1.1);
-          }
+.booking-form {
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
 
-          #rating, #id_car, #review{
-            outline: none;
-          }
-          
- #send {
-    width: 150px;
-    height: 45px;
-    cursor: pointer;
-    font-family: "Oswald", sans-serif;
-    margin-top: 40px;
-    color: #fff;
-    font-size: 14px;
-    border: none;
-    font-weight: bolder;
-    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.form-input, .form-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
     border-radius: 4px;
-    background: none;
-    border: 1px solid #fff;
+    font-size: 16px;
+}
 
- }
+.form-input:focus, .form-select:focus {
+    border-color: #F46767;
+    outline: none;
+}
 
- #responseMessage {
+.form-button {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 522px;
+    height: 54px;
+    margin-top: 20px;
+    font-weight: bolder;
+}
+.form-button:hover {
+    transition: 1.1s;
+    transform: scale(1.1);
+}
+#select__auto {
+    width: 522px;
+}
+.custom-select {
     position: relative;
-    left: 305px;
-    top: -60px;
-    font-size: 12px;
-    width: 195px;
-    font-family: "Tkachenko", sans-serif;
- }
+    display: inline-block;
+}
 
- #review, #id_car, #rating {
-    font-family: "Oswald", sans-serif;
+.form-select {
+    appearance: none; /* Убираем стандартный стиль */
+    -webkit-appearance: none; /* Для Safari */
+    -moz-appearance: none; /* Для Firefox */
+    padding: 10px; /* Отступы */
+    border: 1px solid #ccc; /* Граница */
+    border-radius: 4px; /* Скругление */
+    background-color: white; /* Фоновый цвет */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5"><polygon points="0,0 5,5 10,0" fill="%23333"/></svg>'); /* Графика треугольника */
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Положение треугольника */
+    background-size: 10px; /* Размер треугольника */
+}
+
+/* Убираем стрелочку у выпадающего списка */
+.form-select::-ms-expand {
+    display: none;
+}
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+    font-family: 'Oswald', sans-serif; 
+    border-radius: 4px;
+    background-color: #000000;
     font-weight: bolder;
- }
+  }
+  
 
- #review:focus {
-    border: 1px solid #00ee9f;
- }
-
-   
-    #rating:hover {
-        background-color: #f0f8ff; 
-    }
-
-    
-    #rating:focus {
-        border-color: #00ee9f; 
-        outline: none; 
-    }
-
-    #id_car:focus {
-        border-color: #00ee9f; 
-        outline: none; 
-    }
-    
-.car-price {
-    font-weight: bolder;
-    font-size: 24px;
+.form-select:focus {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5"><polygon points="0,5 5,0 10,5" fill="%23333"/></svg>'); /* Изменяем треугольник при фокусе */
 }
 
-.car-name {
-    font-size: 36px;
+
+.form-select:focus-visible {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5"><polygon points="0,5 5,0 10,5" fill="%23333"/></svg>'); /* Изменяем треугольник при фокусе */
 }
 
-/* /////////////////////////////////////////////////375px MOBILE BREAKPOINT  */
-
-@media (max-width: 375px) {
-    .tx {
-        font-size: 16px;
-    }
-
-    .flex__title {
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-left: -100px;
-        
-      }
-
-      .title__p {
-        font-size: 16px;
-      }
+.alert__wrapp {
+width: 900px;
+height: 150px;
+background-color: #fff;
+margin-top: 100px;
 }
+
+.cent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+    margin-top: 350px;
+}
+
+
+.alert-success {
+    font-family: 'DrukWideCyr', sans-serif;
+    font-size: 22px;
+    color: #101010;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Задайте высоту, если требуется */
+    text-align: center;
+}
+
+.alert__wrapp {
+    margin: 20px; /* Отступы вокруг блока */
+}
+
+.link__descrip__alert {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+

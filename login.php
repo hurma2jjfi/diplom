@@ -3,7 +3,6 @@ require './db/db.php';
 
 session_start(); // Начинаем сессию
 
-// Проверяем, был ли отправлен запрос на вход
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
@@ -22,8 +21,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Проверяем, существует ли пользователь и соответствует ли пароль
     if ($user && password_verify($password, $user['password'])) {
         // Успешный вход: сохраняем информацию о пользователе в сессии
-        $_SESSION['user_id'] = $user['id']; // Или другое уникальное поле, например, email
-        echo json_encode(['success' => true]); // Отправляем успешный ответ
+        $_SESSION['user_id'] = $user['id'];
+
+        // Если пользователь выбрал запомнить меня
+        if (isset($_POST['stayin'])) {
+            // Генерируем новый токен
+            $token = bin2hex(random_bytes(16));
+
+            // Сохраняем токен в базе данных
+            $stmt = $pdo->prepare("UPDATE users SET remember_token = :token WHERE id = :id");
+            $stmt->execute(['token' => $token, 'id' => $user['id']]);
+
+            // Устанавливаем куки на 30 дней
+            setcookie('remember_me', $token, time() + (30 * 24 * 60 * 60), "/");
+        } else {
+            // Удаляем куки, если они были установлены ранее
+            setcookie('remember_me', '', time() - 3600, "/");
+
+            // Удаляем токен из базы данных
+            $stmt = $pdo->prepare("UPDATE users SET remember_token = NULL WHERE id = :id");
+            $stmt->execute(['id' => $user['id']]);
+        }
+
+        echo json_encode(['success' => true]);
         exit();
     } else {
         echo json_encode(['error' => 'Неверный email или пароль.']);
@@ -31,7 +51,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+// При загрузке страницы проверяем наличие куки и аутентифицируем пользователя
+if (isset($_COOKIE['remember_me'])) {
+    $token = $_COOKIE['remember_me'];
 
+    // Проверяем токен в базе данных
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE remember_token = :token LIMIT 1");
+    $stmt->execute(['token' => $token]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Если токен найден, создаем сессию
+    if ($user) {
+        $_SESSION['user_id'] = $user['id'];
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -108,33 +141,65 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script>
 $(document).ready(function() {
     $('#loginForm').on('submit', function(e) {
-        e.preventDefault(); // предотвращение стандартной отправки формы
-        $('#messageContainer').hide(); // скрываем контейнер сообщений
+        e.preventDefault(); // Prevent default form submission
+        $('#messageContainer').hide(); // Hide message container
         
+        // Reset styles for inputs
+        $('input[name="username"], input[name="password"]').css('border', '');
+
+        // Validate inputs
+        let isValid = true;
+        const username = $('input[name="username"]').val().trim();
+        const password = $('input[name="password"]').val().trim();
+
+        if (username === '') {
+            $('input[name="username"]').css('border', '1px solid red'); // Highlight empty username
+            isValid = false;
+        }
+
+        if (password === '') {
+            $('input[name="password"]').css('border', '1px solid red'); // Highlight empty password
+            isValid = false;
+        }
+
+        // If inputs are not valid, show message and exit
+        if (!isValid) {
+            $('#messageText').text('Пожалуйста, заполните все поля.');
+            $('#messageContainer').removeClass('success-message').addClass('error-message');
+            $('#messageContainer').show(); // Show message container
+            return; // Exit the function early
+        }
+
         $.ajax({
-            url: '', // Отправляем на тот же файл
+            url: '', // Send to the same file
             type: 'POST',
             data: $(this).serialize(),
             dataType: 'json',
             success: function(response) {
                 if (response.success) {
-                    // Если вход успешный, перенаправляем на главную страницу
-                    window.location.href = 'glav.php'; // Перенаправляем после успешного входа
+                    // If login is successful, redirect to the main page
+                    window.location.href = 'glav.php'; // Redirect after successful login
                 } else if (response.error) {
                     $('#messageText').text(response.error);
                     $('#messageContainer').removeClass('success-message').addClass('error-message');
-                    $('#messageContainer').show(); // Показываем контейнер сообщений
+                    $('#messageContainer').show(); // Show message container
+                    
+                    // Check which fields caused the error
+                    if (response.fields) {
+                        response.fields.forEach(field => {
+                            $('input[name="' + field + '"]').css('border', '2px solid red');
+                        });
+                    }
                 }
             },
             error: function() {
                 $('#messageText').text('Произошла ошибка при отправке формы. Попробуйте еще раз.');
                 $('#messageContainer').removeClass('success-message').addClass('error-message');
-                $('#messageContainer').show(); // Показываем контейнер сообщений
+                $('#messageContainer').show(); // Show message container
             }
         });
     });
 });
-
 
 
 
